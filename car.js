@@ -7,18 +7,22 @@ export class Car {
     this.width = width;
     this.height = height;
 
-    this.speed = 0;
-    this.acceleration = 0.2;
+    this.speed = constants.CAR_INITIAL_SPEED;
+    this.acceleration = constants.CAR_ACCELERATION;
 
-    this.maxSpeed = 3;
-    this.friction = 0.05;
+    this.maxSpeed = constants.CAR_MAX_SPEED;
+    this.friction = constants.CAR_FRICTION;
 
-    this.angle = 0.0;
+    this.angle = constants.CAR_INITIAL_ANGLE;
 
     this.controls = new Controls();
   }
 
   update() {
+    this.#move();
+  }
+
+  #move() {
     if (this.controls.forward) {
       this.speed = this.speed + this.acceleration;
     }
@@ -45,10 +49,10 @@ export class Car {
     if (this.speed != 0) {
       const flip = this.speed > 0 ? 1 : -1;
       if (this.controls.left) {
-        this.angle = this.angle + 0.03 * flip;
+        this.angle = this.angle + constants.CAR_ANGLE_INCREMENT_FACTOR * flip;
       }
       if (this.controls.right) {
-        this.angle = this.angle - 0.03 * flip;
+        this.angle = this.angle - constants.CAR_ANGLE_INCREMENT_FACTOR * flip;
       }
     }
 
