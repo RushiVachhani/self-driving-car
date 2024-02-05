@@ -10,7 +10,6 @@ export class Controls {
 
   #addKeyboardListeners() {
     document.addEventListener("keydown", (e) => {
-      console.log(e.key);
       switch (e.key) {
         case "ArrowUp":
           this.forward = true;
@@ -25,11 +24,9 @@ export class Controls {
           this.right = true;
           break;
       }
-      console.table(this);
     });
 
     document.addEventListener("keyup", (e) => {
-      console.log(e.key);
       switch (e.key) {
         case "ArrowUp":
           this.forward = false;
@@ -44,7 +41,6 @@ export class Controls {
           this.right = false;
           break;
       }
-      console.table(this);
     });
   }
 }
