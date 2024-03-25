@@ -1,9 +1,12 @@
 const constants = {
+  // general constants
   INFINITY: 1000000,
 
+  // canvas constants
   CANVAS_WIDTH: 200,
   CANVAS_CAMERA_POS_FACTOR: 0.7,
 
+  // car constants
   CAR_STARTING_LANE_NUMBER: 1,
   CAR_STARTING_POS_X: 100,
   CAR_STARTING_POS_Y: 100,
@@ -16,10 +19,16 @@ const constants = {
   CAR_INITIAL_SPEED: 0,
   CAR_INITIAL_ANGLE: 0.0,
 
+  // road constants
   ROAD_DEFAULT_LANE_COUNT: 3,
   ROAD_LINE_WIDTH: 5,
   ROAD_LINE_COLOR: "white",
   ROAD_MARGINS: 0.97,
   ROAD_DASHED_LINE_GAPS: 20,
   ROAD_DASHED_LINE_LENGTH: 20,
+
+  // sensor constants
+  NUMBER_OF_SENSORS: 10,
+  RANGE_OF_SENSORS: 100,
+  SPREAD_OF_SENSORS: Math.PI / 4,
 };
