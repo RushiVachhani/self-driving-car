@@ -1,4 +1,5 @@
 import { Controls } from "./controls.js";
+import { Sensor } from "./sensor.js";
 
 export class Car {
   constructor(x, y, width, height) {
@@ -15,11 +16,13 @@ export class Car {
 
     this.angle = constants.CAR_INITIAL_ANGLE;
 
+    this.sensor = new Sensor(this);
     this.controls = new Controls();
   }
 
-  update() {
+  update(roadBorders) {
     this.#move();
+    this.sensor.update(roadBorders);
   }
 
   #move() {
@@ -63,9 +66,12 @@ export class Car {
   draw(ctx) {
     ctx.save();
     ctx.translate(this.x, this.y);
-    ctx.rotate(-this.angle);
+    ctx.rotate(this.angle * -1);
     ctx.beginPath();
     ctx.rect(-this.width / 2, -this.height / 2, this.width, this.height);
     ctx.fill();
+    ctx.restore();
+
+    this.sensor.draw(ctx);
   }
 }
